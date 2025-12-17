@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from langserve import add_routes
-from my_chain import chain
+from demo import runnable
 from typing import List
 
 app = FastAPI(
@@ -33,9 +33,9 @@ async def redirect_root_to_docs() -> RedirectResponse:
 # Edit this to add the chain you want to add
 add_routes(
     app,
-    chain,
-    path="/gzx"
-           )
+    runnable,
+    path="/gzx",
+)
 
 if __name__ == "__main__":
     import uvicorn
